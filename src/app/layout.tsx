@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Posts from "./posts/posts";
+import Posts from "./posts/page";
 import Link from "next/link";
 
 const geistSans = Geist({
@@ -25,14 +25,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="ko"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col !bg-red-300 border-2">
         <header>
           <nav className="flex gap-4">
             <Link href="/">메인</Link>
             <Link href="/posts">글 목록</Link>
           </nav>
         </header>
-        {children}
+        <main className="flex flex-1 justify-center items-center">
+          {children}
+          </main>
         <footer>푸터</footer>
       </body>
     </html>
