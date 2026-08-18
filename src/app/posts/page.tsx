@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function Posts() {
 
-    const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState<{id: number, title: string}[]>([]);
 
     useEffect(() => {
         fetch("http://localhost:8080/api/v1/posts")
@@ -18,7 +18,7 @@ export default function Posts() {
     return <div>
     <h1>글 목록</h1>
     <ul>
-        {posts.map((post: {id: number, title: string}) => {
+        {posts.map((post) => {
             return <li key={post.id}>ID: {post.id}, Title: {post.title}</li>
         })}
     </ul>
